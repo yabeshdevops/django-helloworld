@@ -3,4 +3,6 @@ from django.http import HttpResponse
 
 
 def home_page_view(request):
-  return HttpResponse("Hello, World!")
+  with open('config/app.config', 'r') as fh:
+      config=fh.read()
+  return HttpResponse("Hello, World!         " + config + "\n")
